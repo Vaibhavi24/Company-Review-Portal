@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Top Tech Companies</h1>
+	<h4> Welcome <b>{{session.username}}</b> </h4>
+
+	<a class="btn btn-success" href="/add_company">Add a new Company</a>
+
+	<hr>
+
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Number of Employees</th>
+			<th>Location</th>
+			<th>Revenue</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		
+		{% for company in companies %}
+		<tr>
+			<td>{{company.c_id}}</td>
+			<td>{{company.c_name}}</td>
+			<td>{{company.c_size}}</td>
+			<td>{{company.c_location}}</td>
+			<td>{{company.c_revenue}}</td>
+
+			<td><a href="edit_company/{{company.c_id}}" class="btn btn-basic pull-right">Edit</a></td>
+			<td><a href="delete_company/{{company.c_id}}" class="btn btn-danger">Delete</a></td>
+
+			
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

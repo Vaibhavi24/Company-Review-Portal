@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h4>Edit Company Details <small>ID : {{id}}</small> </h4>
+{% from 'includes/_formhelpers.html' import render_field %}
+<form method="POST" action="">
+	<div class="form-group">
+		{{render_field(form.size, class_="form-control")}}
+	</div>
+
+	<div class="form-group">
+		{{render_field(form.location, class_="form-control")}}
+	</div>
+
+	<div class="form-group">
+		{{render_field(form.revenue, class_="form-control")}}
+	</div>
+
+	<p><input type="submit" class="btn btn-primary" value="Edit"></p>
+</form>
+{% endblock %}

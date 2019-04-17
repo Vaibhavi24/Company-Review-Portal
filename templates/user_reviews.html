@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Your Company Reviews </h1>
+	<br>
+	<h4> Welcome <b>{{session.username}}</b> </h4>
+
+	{% if reviews %}
+	<a class="btn btn-success" href="/add_review">Add another Review</a>
+
+	<hr>
+
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Company</th>
+			<th>Upvotes</th>
+			<th>Actions</th>
+
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		
+		{% for review in reviews %}
+		<tr>
+			<td>{{review.r_id}}</td>
+			<td>{{review.r_title}}</td>
+			<td>{{review.r_company}}</td>
+			<td>{{review.r_upvotes}}</td>
+
+			<td><a href="edit_review/{{review.r_id}}" class="btn btn-default pull-right">Edit</a></td>
+			<td><a href="view_review/{{review.r_id}}" class="btn btn-success">View</a></td>
+			<td><a href="delete_review/{{review.r_id}}" class="btn btn-danger">Delete</a></td>
+
+			
+		</tr>
+		{% endfor %}
+	</table>
+
+	{% else %}
+	<br>
+	<h5>No Reviews have been added by you!</h5>
+	<br>
+	<br>
+	<a class="btn btn-success" href="/add_review">Add Review</a>
+
+	{% endif %}
+
+{% endblock %}

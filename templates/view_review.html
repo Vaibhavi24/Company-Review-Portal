@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h3>{{review.r_title}}</h3>
+	<small><p style="display: inline">	<strong>ID:</strong>	{{review.r_id}}</p></small>
+	<small><p style="display: inline">	<strong>Company:</strong>	{{review.r_company}}</p></small>
+	<small><p style="display: inline">	<strong>Upvotes:</strong>	{{review.r_upvotes}}</p></small>
+
+	<hr>
+
+	<div>
+		{{review.r_description | safe}}
+	</div>
+{% endblock %}
